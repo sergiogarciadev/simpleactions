@@ -1,0 +1,16 @@
+name: 'Delete a Reference'
+description: 'Delete a Reference'
+author: 'Sergio Garcia'
+branding:
+  icon: 'x-square'
+  color: 'red'
+inputs:
+  github_token:
+    description: 'The GitHub token (if not provided the environment variable GITHUB_TOKEN will be used instead)'
+    required: false
+  ref:
+    description: 'The ref'
+    required: true
+runs:
+  using: 'node12'
+  main: 'dist/index.js'

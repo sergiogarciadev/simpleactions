@@ -1,0 +1,54 @@
+{
+  "name": "delete-ref",
+  "version": "1.0.0",
+  "description": "Delete a Reference",
+  "main": "lib/main.js",
+  "scripts": {
+    "build": "tsc",
+    "format": "prettier --write **/*.ts",
+    "format-check": "prettier --check **/*.ts",
+    "lint": "eslint src/**/*.ts",
+    "pack": "ncc build",
+    "test": "jest --passWithNoTests",
+    "all": "npm run build && npm run format && npm run lint && npm run pack && npm test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/simpleactions/delete-ref.git"
+  },
+  "keywords": [
+    "GitHub",
+    "Actions",
+    "Delete",
+    "Reference"
+  ],
+  "author": "GitHub",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/simpleactions/delete-ref/issues"
+  },
+  "homepage": "https://github.com/simpleactions/delete-ref#readme",
+  "devDependencies": {
+    "@actions/core": "^1.2.7",
+    "@actions/github": "^4.0.0",
+    "@types/jest": "^26.0.23",
+    "@types/node": "^14.14.45",
+    "@typescript-eslint/parser": "^4.23.0",
+    "@zeit/ncc": "^0.22.3",
+    "eslint": "^7.26.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-github": "^4.1.3",
+    "eslint-plugin-jest": "^24.3.6",
+    "flow-bin": "^0.151.0",
+    "graphql": "15.5.0",
+    "jest": "^26.6.3",
+    "jest-circus": "^26.6.3",
+    "js-yaml": "^4.1.0",
+    "prettier": "^2.3.0",
+    "ts-jest": "^26.5.6",
+    "typescript": "^4.2.4"
+  },
+  "volta": {
+    "node": "14.17.0"
+  }
+}

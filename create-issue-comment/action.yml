@@ -1,0 +1,21 @@
+name: 'Create an Issue Comment'
+description: 'Create an Issue Comment'
+branding:
+  icon: 'message-square'
+  color: 'blue'
+inputs:
+  body:
+    description: 'The message body'
+    required: true
+  issue_number:
+    description: 'The issue number'
+    required: false
+  github_token:
+    description: 'The GitHub token (if not provided the environment variable GITHUB_TOKEN will be used instead)'
+    required: false
+outputs:
+  comment_id:
+    description: 'The comment id'
+runs:
+  using: 'node12'
+  main: 'dist/index.js'

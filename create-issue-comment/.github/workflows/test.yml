@@ -1,0 +1,23 @@
+name: "units-test"
+on:
+  pull_request:
+    branches: master
+
+env:
+  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+jobs:
+  # test action works running from the graph
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+
+      - name: Publish a comment
+        uses: ./
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          body: |
+            This is the first message.
+
+             - [ ] It is multiline

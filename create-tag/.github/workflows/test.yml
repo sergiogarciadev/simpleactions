@@ -1,0 +1,31 @@
+name: "units-test"
+on:
+  pull_request:
+    branches: master
+    types:
+      - closed
+
+jobs:
+  # test action works running from the graph
+  test:
+    if: github.event.pull_request.merged
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+
+      - name: Set Version
+        id: version
+        run: |
+          echo "::set-output name=value::$( pwsh ./version-tool.ps1 next-version )"
+
+      - name: Create a tag
+        id: tag
+        uses: ./
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          message: ${{ github.ref }} merged and created ${{ steps.version.outputs.value }}
+          tag: v${{ steps.version.outputs.value }}
+
+      - name: Show Ref
+        run: |
+          echo "Created version ${{ steps.tag.outputs.ref }}"
